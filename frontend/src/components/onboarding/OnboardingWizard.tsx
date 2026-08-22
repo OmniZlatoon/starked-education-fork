@@ -85,6 +85,10 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
   // ─── Persist step + data to localStorage ────────────────────────────────
 
   useEffect(() => {
+    // Don't persist the Done step — completion is tracked via
+    // 'starked_onboarding_complete' set by handleComplete. Persisting step 4
+    // would restore the step key after handleComplete removes it.
+    if (currentStep >= STEPS.length - 1) return;
     try {
       localStorage.setItem(STORAGE_STEP_KEY, String(currentStep));
     } catch {
@@ -93,12 +97,16 @@ export const OnboardingWizard: React.FC<OnboardingWizardProps> = ({
   }, [currentStep]);
 
   useEffect(() => {
+    // Don't persist data on the Done step — handleComplete clears both keys
+    // and the parent effect running after the child (DoneStep) would overwrite
+    // the removal. In-progress data is only meaningful for resuming mid-flow.
+    if (currentStep >= STEPS.length - 1) return;
     try {
       localStorage.setItem(STORAGE_DATA_KEY, JSON.stringify(data));
     } catch {
       // ignore quota errors
     }
-  }, [data]);
+  }, [data, currentStep]);
 
   // ─── Keyboard navigation ────────────────────────────────────────────────
 

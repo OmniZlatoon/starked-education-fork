@@ -3,10 +3,10 @@ import { createMetadata } from '@/lib/seo';
 
 export const dynamic = 'force-dynamic';
 
-import { VirtualScienceLab } from '../../components/Lab';
+import nextDynamic from 'next/dynamic';
 import ErrorBoundary from '../../components/ErrorBoundary';
 
-const VirtualScienceLab = dynamic(
+const VirtualScienceLab = nextDynamic(
   () => import('../../components/Lab').then((mod) => mod.VirtualScienceLab),
   {
     loading: () => (

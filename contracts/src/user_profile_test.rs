@@ -1,9 +1,8 @@
 #![cfg(test)]
 extern crate std;
 
-use super::*;
 use crate::user_profile::{
-    Achievement, PrivacyLevel, UserProfileContract, UserProfileContractClient,
+    PrivacyLevel, UserProfileContract, UserProfileContractClient,
 };
 use soroban_sdk::{testutils::Address as _, Address, Env, String};
 use std::panic::AssertUnwindSafe;

@@ -923,7 +923,7 @@ pub fn get_credentials_expiring_soon(env: &Env, within_seconds: u64) -> Vec<u64>
 //  Batch Credential Operations
 // ═══════════════════════════════════════════════════════════════════
 
-const DEFAULT_MAX_BATCH_SIZE: u32 = 100;
+
 
 /// Get the current maximum batch size
 pub fn get_max_batch_size(env: &Env) -> u32 {

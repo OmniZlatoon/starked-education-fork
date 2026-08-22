@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import React, { useEffect } from 'react';
 import Link from 'next/link';
@@ -67,7 +67,7 @@ export const DoneStep: React.FC<DoneStepProps> = ({
       </div>
 
       <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
-        You’re All Set, {firstName}! 🎉
+        You're All Set, {firstName}! 🎉
       </h1>
       <p className="text-base text-gray-600 dark:text-slate-300 max-w-md mb-8">
         Your profile is ready. Explore courses, earn verifiable credentials,
@@ -114,7 +114,7 @@ export const DoneStep: React.FC<DoneStepProps> = ({
         </Link>
       </div>
 
-      {/* Confetti keyframes injected locally so they’re always available */}
+      {/* Confetti keyframes injected locally so they're always available */}
       <style jsx>{`
         @keyframes confetti-0 {
           to { transform: translate(-40px, -50px) scale(0); opacity: 0; }

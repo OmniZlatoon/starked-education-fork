@@ -3,25 +3,25 @@
 export const dynamic = 'force-dynamic';
 
 import { useState } from 'react';
-import dynamic from 'next/dynamic';
+import nextDynamic from 'next/dynamic';
 import { useProfile } from '../../hooks/useProfile';
 import { ProfileHeader } from '../../components/Profile/ProfileHeader';
 import { ProfileSkeleton } from '../../components/Profile/ProfileSkeleton';
 import { ErrorBoundary } from '../../components/ErrorBoundary';
 
-const ProfileEditor = dynamic(
+const ProfileEditor = nextDynamic(
   () => import('../../components/ProfileEditor').then((m) => m.ProfileEditor),
   { loading: () => <ProfileSkeleton /> }
 );
-const AchievementDisplay = dynamic(
+const AchievementDisplay = nextDynamic(
   () => import('../../components/AchievementDisplay').then((m) => m.AchievementDisplay),
   { loading: () => <ProfileSkeleton /> }
 );
-const CredentialList = dynamic(
+const CredentialList = nextDynamic(
   () => import('../../components/CredentialList').then((m) => m.CredentialList),
   { loading: () => <ProfileSkeleton /> }
 );
-const ProfileStats = dynamic(
+const ProfileStats = nextDynamic(
   () => import('../../components/ProfileStats').then((m) => m.ProfileStats),
   { loading: () => <ProfileSkeleton /> }
 );
